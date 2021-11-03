@@ -1,0 +1,7 @@
+{
+  "name": "chama-api-state",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
