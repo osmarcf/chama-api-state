@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "chama-api-state",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}

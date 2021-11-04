@@ -2,20 +2,19 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Lista de Contatos</ion-title>
+        <ion-title>Chamada à API</ion-title>
       </ion-toolbar>
     </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Lista de Contatos com Vuex</ion-title>
+          <ion-title size="large">Chamada à API</ion-title>
         </ion-toolbar>
       </ion-header>
     
       <div id="container">
-        <ion-button expand="block" router-link="/chamada">Chamada à API</ion-button>
-        <ion-button expand="block" router-link="/contatos">Exibe lista de contatos</ion-button>
+        <ion-button expand="block" @click="lerContatos">Ler contatos da API</ion-button>
       </div>
     </ion-content>
   </ion-page>
@@ -34,6 +33,11 @@ export default defineComponent({
     IonTitle,
     IonToolbar,
     IonButton
+  },
+  methods: {
+    lerContatos: function() {
+      this.$store.dispatch('getContatosAPI');
+    }
   }
 });
 </script>

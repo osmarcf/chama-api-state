@@ -2,27 +2,28 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Lista de Contatos</ion-title>
+        <ion-title>Lista de contatos</ion-title>
       </ion-toolbar>
     </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Lista de Contatos com Vuex</ion-title>
+          <ion-title size="large">Lista de contatos</ion-title>
         </ion-toolbar>
       </ion-header>
     
       <div id="container">
-        <ion-button expand="block" router-link="/chamada">Chamada à API</ion-button>
-        <ion-button expand="block" router-link="/contatos">Exibe lista de contatos</ion-button>
+        <ion-list>
+          <ion-item v-for="contato in lista" :key="contato.id">{{ contato.nome }}</ion-item>
+        </ion-list>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -33,7 +34,13 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar,
-    IonButton
+    IonList,
+    IonItem
+  },
+  computed: {
+    lista() {
+      return this.$store.getters.getContatos;
+    }
   }
 });
 </script>
